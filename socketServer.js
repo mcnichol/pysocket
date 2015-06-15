@@ -13,7 +13,7 @@ socket.on('data', function(data){
   console.log('DATA: ' + data);
 });
 socket.on('close', function(){
-  console.log('Connection closed'); 
+  console.log('Closed'); 
 });
 
 process.on('SIGINT', function(){
@@ -25,7 +25,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.on('line', function(cmd){
-  socket.write(cmd);
-  console.log('Tried to write: ' + cmd);
+rl.on('line', function(data){
+  socket.write(data);
+  console.log("Echo: " +data);
 });
